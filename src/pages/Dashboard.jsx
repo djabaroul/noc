@@ -6,6 +6,7 @@ import Chart from 'react-apexcharts'
 import statusCards from '../assets/JsonData/status-card-data.json'
 import StatusCard from '../components/status-card/StatusCard'
 import Badge from '../components/badge/Badge'
+import './Dashboard.css'
 
 const chartoptions= {
     series:[{
@@ -69,67 +70,67 @@ const topCustomers = {
 const latestData = {
     head:[
      
-          'Object ID',
-          'asamIfExtCustomerId',
-          'ifAdminStatus',
-          'ifOperStatus'
-          //'status'
+          'Object Name',
+          'IP Address',
+          'Name',
+          'NE Family',
+          'Action'
      
     ],
     body:[
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"down"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         },
 
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"down"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         },
 
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"up"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         },
 
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"down"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         },
 
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"up"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         },
 
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"up"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         },
 
         {
-            id:"R1.S1.LT2.PON1.ONT19.C1.P2",
-            customerid:"available",
-            ifadminstatus:"up",
-            ifoperstatus:"down"
+            "ObjectName": "HED1",
+            "IPAddress": "10.178.39.226",
+            "Name": "HED1",
+            "NEFamily": "ISAM/FTTB/FTTN",
             
         }
         /*,
@@ -159,11 +160,12 @@ const renderOrderHead = (item,index)=>(
 )
 
 const renderOrderBody = (item,index)=>(
-    <tr key={index}>
-       <td> {item.id}</td>
-       <td> {item.customerid}</td>
-       <td> {item.ifadminstatus}</td>
-       <td> {item.ifoperstatus}</td>
+    <tr key={index}  /*onClick={(e) => e.preventDefault()}*/ >
+       <td> {item.ObjectName}</td>
+       <td> {item.IPAddress}</td>
+       <td> {item.Name}</td>
+       <td> {item.NEFamily}</td>
+       <td ><Link to={`/ont`}>View ONT</Link></td>
       
       
     </tr>
@@ -174,7 +176,7 @@ const renderCustomerHead = (item,index)=>(
 )
 
 const renderCustomersBody = (item,index)=>(
-    <tr key={index}>
+    <tr key={index} onClick={(e) => e.preventDefault()} style={{cursor:"pointer"}}>
        <td> {item.username}</td>
        <td> {item.order}</td>
        <td> {item.price}</td>
@@ -213,29 +215,31 @@ const Dashboard = () => {
                     />
                 </div>
               </div>
+              {/*
               <div className="col-4" >
                   <div className="card">
                     <div className="card-header">
                        <h3> ISAM ONT</h3>
                     </div>
                     <div className="card-body">
-                      {/*  table */}
+                      {/*  table 
                       <Table
                          headData={topCustomers.head}
                          renderHead={(item,index)=>renderCustomerHead(item, index)}
                          bodyData={topCustomers.body}
                          renderBody={(item,index)=> renderCustomersBody(item, index)}
+                         
                       />
                     </div>
                     <div className="card-footer">
                      <Link to="/"> View All </Link>
                     </div>
                   </div>
-                </div>
-                <div className="col-8">
+                </div>*/}
+                <div className="col-12">
                   <div className="card">
                     <div className="card-header">
-                      <h3>Latest Data ONT VEIP PORT</h3>
+                      <h3>OLT LIST</h3>
                     </div>
                     <div className="card-body">
                       <Table
@@ -246,7 +250,7 @@ const Dashboard = () => {
                       />
                     </div>
                     <div className="card-footer">
-                      <Link to="/">View All</Link>
+                      <Link to={`/analytics`}>View All</Link>
                     </div>
                   </div>
                 </div>

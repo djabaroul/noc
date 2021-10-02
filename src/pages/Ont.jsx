@@ -1,13 +1,15 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import Table from '../components/table/Table'
-import customerList from '../assets/JsonData/admin.json'
+import ontList from '../assets/JsonData/ont.json'
 
-const customerTableHead = [
+const ontTableHead = [
     
     'Object Name',
-    'IP Address',
-    'NE Family',
+    'DescriptionPart1',
+    'Description Part2',
+    'Serial Number',
+    'Subscriber LocationID',
     'Actions'
     
 ]
@@ -17,18 +19,20 @@ const renderHead= (item,index) =><th key={index}>{item}</th>
 const renderBody = (item,index) =>(
     <tr>
       
-      <td>{item.Object_Name}</td>
-      <td>{item.IP_Address}</td>
-      <td>{item.NE_Family}</td>
+      <td>{item.ObjectName}</td>
+      <td>{item.DescriptionPart1}</td>
+      <td>{item.DescriptionPart2}</td>
+      <td>{item.SerialNumber}</td>
+      <td>{item.SubscriberLocationID}</td>
       <td><Link to={`/analytics`}>View All</Link></td>
     </tr>
 )
 
-const Customers = () => {
+const Ont = () => {
     return (
         <div>
            <h2 className="page-header">
-             customers
+             Ont List
            </h2>
            <div className="row">
              <div className="col-12">
@@ -36,9 +40,9 @@ const Customers = () => {
                  <div className="card__body">
                    <Table 
                        limit='10'
-                       headData={customerTableHead}
+                       headData={ontTableHead}
                        renderHead={(item, index)=>renderHead(item,index)}
-                       bodyData={customerList}
+                       bodyData={ontList}
                        renderBody={(item,index)=>renderBody(item,index)}
                    />
                  </div>
@@ -49,4 +53,4 @@ const Customers = () => {
     )
 }
 
-export default Customers
+export default Ont

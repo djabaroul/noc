@@ -10,8 +10,8 @@
         "icon": "bx bx-user-pin"
     },
     {
-        "display_name": "Data-table",
-        "route": "/datatable",
+        "display_name": "Ont",
+        "route": "/ont",
         "icon": "bx bx-package"
     },
     {
